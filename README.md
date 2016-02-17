@@ -1,3 +1,13 @@
+## About
+
+This project was built to provide a method for automatically uploading videos of flag capture records to YouTube after matches are complete.
+
+That's an over-simplification, see below.
+
+### Process Flow
+
+![Process Flow](docs/images/process-flow.png)
+
 ## Installation
 
 #### File Watching
