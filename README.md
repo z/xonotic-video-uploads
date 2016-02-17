@@ -1,5 +1,13 @@
 ## Installation
 
+#### File Watching
+
+To execute actions after demos are finished being recorded `inotifywait` is required.
+
+```
+sudo apt-get install inotify-tools
+```
+
 #### Headless Encoding
 
 Install Xvfb
