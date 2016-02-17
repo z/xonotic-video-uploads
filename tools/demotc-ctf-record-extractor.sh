@@ -11,12 +11,6 @@ esac
 
 d=$1
 i=0
-echo "---"
-echo $PATTERN
-echo "---"
-echo $d
-echo "---"
-echo demotc.pl grep "$d" "$PATTERN"
 ./demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do
 	timecode=${timecode%:}
 	result=${result#\"}

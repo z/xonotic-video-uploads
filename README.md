@@ -25,8 +25,15 @@ Download the json for this OAuth2 client ID and save it as `client_secrets.json`
 
 ## Usage
 
-#### Demo Slicing
+#### Demo recording
 
+server-side demos can be enabled with the following cvar:
+
+```
+sv_autodemo_perclient
+```
+
+#### Demo Slicing
 
 ```bash
 ./demotc-ctf-record-extractor.sh my-demo.dem new
@@ -49,6 +56,10 @@ DISPLAY=:1.0 ./all run -userdir ~/.xonotic +playdemo demos/capture-2.dem
 ```
 
 #### Uploads
+
+You need to be inside the venv to run the following.
+
+`source activate` will put you in the venv. and `deactivate` will exit the venv.
 
 ```bash
 ./upload.py --file="atomforge-bot.ogv" \
