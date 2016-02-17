@@ -30,7 +30,7 @@ Download the json for this OAuth2 client ID and save it as `client_secrets.json`
 server-side demos can be enabled with the following cvar:
 
 ```
-sv_autodemo_perclient
+sv_autodemo_perclient 1
 ```
 
 #### Demo Slicing
