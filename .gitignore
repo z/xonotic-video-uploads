@@ -1,0 +1,7 @@
+activate
+venv
+*.swp
+*.swo
+*.ogv
+client_secrets.json
+upload.py-oauth2.json
