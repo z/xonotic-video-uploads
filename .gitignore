@@ -2,6 +2,8 @@ activate
 venv
 *.swp
 *.swo
+capture-*.dem
+playback-*.dem
 *.ogv
 client_secrets.json
 upload.py-oauth2.json

@@ -1,8 +1,18 @@
 ## Installation
 
+#### Headless Encoding
+
+Install Xvfb
+
+```bash
+sudo apt-get install xvfb
+```
+
+#### Uploads
+
 Create a Python 2 venv and install the dependencies:
 
-```
+```bash
 virtualenv venv
 ln -s venv/bin/activate
 source activate
@@ -15,8 +25,32 @@ Download the json for this OAuth2 client ID and save it as `client_secrets.json`
 
 ## Usage
 
+#### Demo Slicing
 
+
+```bash
+./demotc-ctf-record-extractor.sh my-demo.dem new
 ```
+
+This command will create many .dem files, the ones we are interested in are 'capture-*.dem'
+
+#### Headless Encoding
+
+Start Xvfb
+
+```bash
+Xvfb :1 -screen 0 800x600x16
+```
+
+Encoding a demo
+
+```bash
+DISPLAY=:1.0 ./all run -userdir ~/.xonotic +playdemo demos/capture-2.dem
+```
+
+#### Uploads
+
+```bash
 ./upload.py --file="atomforge-bot.ogv" \
                        --title="test" \
                        --description="testing upload" \
