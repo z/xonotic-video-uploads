@@ -10,6 +10,7 @@ case "$2" in
 esac
 
 d=$1
+name=$(basename "$d" .dem)
 i=0
 ./demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do
 	timecode=${timecode%:}
@@ -28,6 +29,6 @@ i=0
 	timecode_start=`echo "$timecode - $minutes*60 - $seconds - $tenths*0.1 - 2" | bc -l`
 	timecode_end=`echo "$timecode + 2" | bc -l`
 	i=$(($i + 1))
-    ./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
-	./demotc.pl cut "$d" "capture-$i.dem" "$timecode_start" "$timecode_end" --capture
+    #./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
+	./demotc.pl cut "$d" "capture-$name-$i.dem" "$timecode_start" "$timecode_end" --capture
 done
