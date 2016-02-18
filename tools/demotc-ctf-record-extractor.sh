@@ -1,7 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+# creates "sliced" demo files
+
+source config.conf
 
 case "$2" in
-	old)
+	old) # left here in case I want to use it later
 		PATTERN='all-time fastest lap record with (.*)\n'
 		;;
 	new|*)
@@ -14,6 +17,7 @@ name=$(basename "$d" .dem)
 i=0
 ./demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do
 	timecode=${timecode%:}
+    echo "---> $result"
 	result=${result#\"}
 	result=${result%\"}
 	result=${result%% *}
@@ -32,3 +36,5 @@ i=0
     #./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
 	./demotc.pl cut "$d" "capture-$name-$i.dem" "$timecode_start" "$timecode_end" --capture
 done
+
+find -name "capture-*.dem" -exec mv {} $WORKING_DIR/sliced \; 

@@ -4,6 +4,10 @@ This project was built to provide a method for automatically uploading videos of
 
 That's an over-simplification, see below.
 
+#### Note
+
+I will be adding a tmux config soon because it's the only sane way to manage this system. If you're ambitious and impatient, the hint is that you need to run `watcher-youtube.sh` out of the repo's root directory.
+
 ### Process Flow
 
 ![Process Flow](docs/images/process-flow.png)

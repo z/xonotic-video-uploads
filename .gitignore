@@ -6,5 +6,6 @@ capture-*.dem
 playback-*.dem
 *.dem
 *.ogv
+tools/config.conf
 client_secrets.json
 upload.py-oauth2.json

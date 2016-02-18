@@ -144,7 +144,7 @@ for(;;)
 		{
 			if($capture)
 			{
-				$inject_buffer = "\011\n//CUTMARK\ncl_capturevideo 0; defer 0.5 \"disconnect\"\n\000";
+				$inject_buffer = "\011\n//CUTMARK\ncl_capturevideo 0; defer 0.5 \"quit\"\n\000";
 			}
 			else
 			{
