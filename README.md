@@ -43,9 +43,9 @@ Download the json for this OAuth2 client ID and save it as `client_secrets.json`
 
 ## Configuration
 
-Create a config.conf file in the tools/ folder:
+Create a config.conf file in the folder:
 
-`cp tools/example.config.conf tools/config.conf`
+`cp example.config.conf config.conf`
 
 Edit it to fit your setup. Currently the example assumes one system for all logical servers.
 
@@ -106,4 +106,18 @@ You need to be inside the venv to run the following.
                        --keywords="xonotic" \
                        --category="22" \
                        --privacyStatus="private"
+```
+
+#### Tips and Tricks
+
+find and copy a bunch of old demos to be parsed automatically by the system:
+
+```
+find . -regex ".*\(moonstone\|mIKE1\|polo3ctf\).*" -exec cp {} ~/.xonotic/data/sv_autodemos \;
+```
+
+Kill Xvfb (shouldn't need this when I figure out remain-on-exit in tmuxp):
+
+```
+kill -9 $(pgrep Xvfb)
 ```

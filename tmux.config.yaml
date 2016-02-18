@@ -4,13 +4,11 @@ windows:
   layout: tiled
   panes:
     - shell_command:
-        - cd tools
         - ./watcher-demos.sh
     - shell_command:
-        - cd tools
         - ./watcher-records.sh
     - shell_command:
         - source activate
-        - ./tools/watcher-youtube.sh
+        - ./watcher-youtube.sh
     - shell_command:
         - Xvfb :1 -screen 0 800x600x16
