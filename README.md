@@ -49,6 +49,8 @@ Create a config.conf file in the folder:
 
 Edit it to fit your setup. Currently the example assumes one system for all logical servers.
 
+Check out `example.autoexec.cfg` for an example config you can use on your encoding server.
+
 
 ## Usage
 

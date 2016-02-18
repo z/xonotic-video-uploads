@@ -11,4 +11,4 @@ windows:
         - source activate
         - ./watcher-youtube.sh
     - shell_command:
-        - Xvfb :1 -screen 0 800x600x16
+        - Xvfb :1 -screen 0 1920x1080x16
