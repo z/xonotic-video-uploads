@@ -4,10 +4,6 @@ This project was built to provide a method for automatically uploading videos of
 
 That's an over-simplification, see below.
 
-#### Note
-
-I will be adding a tmux config soon because it's the only sane way to manage this system. If you're ambitious and impatient, the hint is that you need to run `watcher-youtube.sh` out of the repo's root directory.
-
 ### Process Flow
 
 ![Process Flow](docs/images/process-flow.png)
@@ -45,7 +41,27 @@ Create OAuth2 credentials for type 'other' at https://console.developers.google.
 
 Download the json for this OAuth2 client ID and save it as `client_secrets.json` in this project's root dir.
 
+## Configuration
+
+Create a config.conf file in the tools/ folder:
+
+`cp tools/example.config.conf tools/config.conf`
+
+Edit it to fit your setup. Currently the example assumes one system for all logical servers.
+
+
 ## Usage
+
+You can start it all with the following command (though you should read up on tmux a bit first):
+
+`tmuxp load tmux.config.yaml`
+
+To test it, put a demo file that has flag capture records in the `$DEMO_DIR` folder. That is, the folder that the `watcher-demos.sh` script is watching.
+
+This watcher script kicks off a chain reaction that the other watchers will pick up on. If the files match the criteria, they advance to the next watcher.
+
+
+### Old details about how it works
 
 #### Demo recording
 
