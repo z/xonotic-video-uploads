@@ -20,7 +20,7 @@ inotifywait -m $WORKING_DIR -e create -e moved_to |
             echo "Processing demo: $demo"
 
             # Record the demo (the bottleneck)
-            ./xonotic-headless.sh "$demo"
+            ./xonotic-headless.sh -w "$demo"
 
             # Move capture-*.ogv to VIDEO_DIR -- TODO improve this
             LAST_FILE=$(ls -Art "$RAW_VIDEO_DIR" | tail -n 1)
