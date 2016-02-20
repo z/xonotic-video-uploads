@@ -31,6 +31,7 @@ sudo apt-get install xvfb libvorbisenc2 libtheora0
 ```
 sudo modprobe snd-dummy
 sudo usermod -a -G audio <xonotic-user>
+sudo reboot now
 ```
 
 #### Uploads
