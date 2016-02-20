@@ -3,13 +3,12 @@
 
 source config.conf
 
-inotifywait -m $DEMO_DIR -e create -e moved_to |
+inotifywait -m $DEMO_DIR -e close_write -e moved_to |
     while read path action file; do
 
-        echo "The file '$file' appeared in directory '$path' via '$action'"
+        echo "-> $file"
 
-        echo $WORKING_DIR
-
+#	scp "${path}${file}" encoding-server:~/watched_dir
         mv "${path}${file}" "$WORKING_DIR"
 
     done

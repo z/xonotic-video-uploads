@@ -3,15 +3,21 @@
 
 source config.conf
 
+#inotifywait -m $WORKING_DIR -e create -e moved_to |
 inotifywait -m $WORKING_DIR -e create -e moved_to |
     while read path action file; do
 
-        echo "The file '$file' appeared in directory '$path' via '$action'"
+        echo "-> $file"
 
         # Process all records
+        echo ./demotc-ctf-record-extractor.sh "${path}${file}" new
         ./demotc-ctf-record-extractor.sh "${path}${file}" new
 
-        for demo in $(find "${WORKING_DIR}sliced/" -name "capture-*.dem"); do
+	sliced=$(find "${WORKING_DIR}sliced/" -name "capture-*.dem")
+	
+	echo "Sliced:\n $sliced \n"
+
+        for demo in $sliced; do
 
             demo=$(basename $demo)
 

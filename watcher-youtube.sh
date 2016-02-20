@@ -7,15 +7,16 @@ source config.conf
 inotifywait -m $VIDEO_DIR -e create -e moved_to |
     while read path action file; do
 
-        echo "The file '$file' appeared in directory '$path' via '$action'"
+        echo "-> $file"
+
+	name=$(echo $file | sed 's/capture-//g;s/_/ - /g;s/- [0-9]\{1,3\}-[0-9]\{1,3\}-[0-9]\{1,3\}-\{1,3\}[0-9]\{1,3\}-[0-9]\{4,7\}-[0-9]\{1,3\}.ogv//g;s/- \([0-9]\{1,3\}\)-\([0-9]\{1,3\}\) -/- \1.\2 -/')
 
         # upload to youtube
         ./upload.py --file="${path}${file}" \
-                       --title="$file" \
-                       --description="testing upload" \
+                       --title="$name" \
+                       --description="This file was automatically uploaded when a flag capture was discovered by the server" \
                        --keywords="xonotic" \
                        --category="22" \
                        --privacyStatus="private"
         
-
     done

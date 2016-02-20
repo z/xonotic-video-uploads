@@ -10,3 +10,11 @@ windows:
     - shell_command:
         - source activate
         - ./watcher-youtube.sh
+    - shell_command:
+        - cd /home/xonotic/0.8.1/Xonotic
+        - ./xonotic-linux-dedicated.sh +serverconfig ctf.cfg
+- window_name: develop
+  layout: tiled
+  panes:
+    - shell_command:
+        - vim -S develop.vim
