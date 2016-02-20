@@ -17,4 +17,4 @@ windows:
   layout: tiled
   panes:
     - shell_command:
-        - vim -S develop.vim
+        - vim -S ./config/develop.vim

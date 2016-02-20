@@ -20,10 +20,10 @@ sudo apt-get install inotify-tools
 
 #### Headless Encoding
 
-Install Xvfb:
+Install Xvfb and libvorbis:
 
 ```bash
-sudo apt-get install xvfb
+sudo apt-get install xvfb libvorbisenc2 libtheora0
 ```
 
 #### Uploads
@@ -43,27 +43,26 @@ Download the json for this OAuth2 client ID and save it as `client_secrets.json`
 
 ## Configuration
 
-Create a config.conf file in the folder:
+Create a `config/config.conf` file:
 
-`cp example.config.conf config.conf`
+`cp config/example.config.conf config/config.conf`
 
 Edit it to fit your setup. Currently the example assumes one system for all logical servers.
 
-Check out `example.autoexec.cfg` for an example config you can use on your encoding server.
+Check out `config/example.autoexec.cfg` for an example config you can use on your encoding server.
 
 
 ## Usage
 
 You can start it all with the following command (though you should read up on tmux a bit first):
 
-`tmuxp load tmux.config.yaml`
+`tmuxp load config/tmux.config.yaml`
 
 To test it, put a demo file that has flag capture records in the `$DEMO_DIR` folder. That is, the folder that the `watcher-demos.sh` script is watching.
 
 This watcher script kicks off a chain reaction that the other watchers will pick up on. If the files match the criteria, they advance to the next watcher.
 
-
-### Old details about how it works
+### Old notes about how it works
 
 #### Demo recording
 
@@ -123,3 +122,10 @@ Kill Xvfb (shouldn't need this when I figure out remain-on-exit in tmuxp):
 ```
 kill -9 $(pgrep Xvfb)
 ```
+
+
+### Development
+
+If you're a vim and tmux user, you might like this config I use for local development:
+
+`tmuxp load config/develop.config.yaml`

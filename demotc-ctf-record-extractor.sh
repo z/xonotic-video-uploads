@@ -1,7 +1,7 @@
 #!/bin/bash
 # creates "sliced" demo files
 
-source config.conf
+source config/config.conf
 
 case "$2" in
 	old) # left here in case I want to use it later
@@ -13,6 +13,7 @@ case "$2" in
 esac
 
 d=$1
+echo "processing $d"
 name=$(basename "$d" .dem)
 i=0
 ./demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do

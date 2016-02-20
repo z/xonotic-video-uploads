@@ -1,7 +1,7 @@
 #!/bin/bash
 # copies "cut" demos to the Encoding Server when complete
 
-source config.conf
+source config/config.conf
 
 #inotifywait -m $WORKING_DIR -e create -e moved_to |
 inotifywait -m $WORKING_DIR -e create -e moved_to |
@@ -13,11 +13,7 @@ inotifywait -m $WORKING_DIR -e create -e moved_to |
         echo ./demotc-ctf-record-extractor.sh "${path}${file}" new
         ./demotc-ctf-record-extractor.sh "${path}${file}" new
 
-	sliced=$(find "${WORKING_DIR}sliced/" -name "capture-*.dem")
-	
-	echo "Sliced:\n $sliced \n"
-
-        for demo in $sliced; do
+        for demo in $(find "${WORKING_DIR}sliced/" -name "capture-*.dem"); do
 
             demo=$(basename $demo)
 
@@ -28,6 +24,9 @@ inotifywait -m $WORKING_DIR -e create -e moved_to |
 
             # Move capture-*.ogv to VIDEO_DIR -- TODO improve this
             LAST_FILE=$(ls -Art "$RAW_VIDEO_DIR" | tail -n 1)
+            echo "Last File:"
+            ls -Art
+            echo "-----"
             echo "$LAST_FILE"
             echo mv "${RAW_VIDEO_DIR}${LAST_FILE}" "$VIDEO_DIR/${demo%.*}.ogv"
             mv "${RAW_VIDEO_DIR}${LAST_FILE}" "$VIDEO_DIR/${demo%.*}.ogv"

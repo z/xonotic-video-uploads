@@ -2,7 +2,7 @@
 # uploads ogv files to YouTube when Complete
 
 # TODO find config
-source config.conf
+source config/config.conf
 
 inotifywait -m $VIDEO_DIR -e create -e moved_to |
     while read path action file; do

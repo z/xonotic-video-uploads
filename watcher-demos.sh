@@ -1,7 +1,7 @@
 #!/bin/bash
 # copies demos to the Processing Server when complete.
 
-source config.conf
+source config/config.conf
 
 inotifywait -m $DEMO_DIR -e close_write -e moved_to |
     while read path action file; do
