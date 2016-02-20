@@ -24,10 +24,7 @@ inotifywait -m $WORKING_DIR -e create -e moved_to |
 
             # Move capture-*.ogv to VIDEO_DIR -- TODO improve this
             LAST_FILE=$(ls -Art "$RAW_VIDEO_DIR" | tail -n 1)
-            echo "Last File:"
-            ls -Art
-            echo "-----"
-            echo "$LAST_FILE"
+            echo "Last File: $LAST_FILE"
             echo mv "${RAW_VIDEO_DIR}${LAST_FILE}" "$VIDEO_DIR/${demo%.*}.ogv"
             mv "${RAW_VIDEO_DIR}${LAST_FILE}" "$VIDEO_DIR/${demo%.*}.ogv"
 
