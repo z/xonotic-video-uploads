@@ -12,7 +12,7 @@ That's an over-simplification, see below.
 
 #### File Watching
 
-To execute actions after demos are finished being recorded `inotifywait` is required.
+The watcher scripts require `inotifywait` on any server a watcher script lives.
 
 ```
 sudo apt-get install inotify-tools
@@ -20,7 +20,7 @@ sudo apt-get install inotify-tools
 
 #### Headless Encoding
 
-Install Xvfb
+Install Xvfb:
 
 ```bash
 sudo apt-get install xvfb
@@ -102,7 +102,7 @@ You need to be inside the venv to run the following.
 `source activate` will put you in the venv. and `deactivate` will exit the venv.
 
 ```bash
-./upload.py --file="atomforge-bot.ogv" \
+./upload.py --file="my-video.ogv" \
                        --title="test" \
                        --description="testing upload" \
                        --keywords="xonotic" \
@@ -123,8 +123,3 @@ Kill Xvfb (shouldn't need this when I figure out remain-on-exit in tmuxp):
 ```
 kill -9 $(pgrep Xvfb)
 ```
-
-
-##### Bugs
-
-`upload.py` currently has some nasty input, this is related to `the google-api-python-client`, just waiting for a [fix](https://github.com/google/google-api-python-client/issues/179)
