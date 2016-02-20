@@ -26,6 +26,13 @@ Install Xvfb and libvorbis:
 sudo apt-get install xvfb libvorbisenc2 libtheora0
 ```
 
+(Optional) Setup a dummy sound card:
+
+```
+sudo modprobe snd-dummy
+sudo usermod -a -G audio <xonotic-user>
+```
+
 #### Uploads
 
 Create a Python 2 venv and install the dependencies:
