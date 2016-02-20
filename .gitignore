@@ -2,6 +2,7 @@ activate
 venv
 *.swp
 *.swo
+*.log
 capture-*.dem
 playback-*.dem
 *.dem

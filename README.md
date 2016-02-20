@@ -23,7 +23,7 @@ sudo apt-get install inotify-tools
 Install Xvfb and libvorbis:
 
 ```bash
-sudo apt-get install xvfb libvorbisenc2 libtheora0
+sudo apt-get install xvfb xinit libvorbisenc2 libvorbis-dev libogg-dev libsdl1.2debian libtheora0
 ```
 
 (Optional) Setup a dummy sound card:
