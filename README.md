@@ -26,15 +26,15 @@ Install Xvfb and libvorbis:
 sudo apt-get install xvfb xinit libvorbisenc2 libvorbis-dev libogg-dev libsdl1.2debian libtheora0
 ```
 
-(Optional) Setup a dummy sound card:
+Create needed directories in your `$USER_DIR`:
 
-```
-sudo modprobe snd-dummy
-sudo usermod -a -G audio <xonotic-user>
-sudo reboot now
+```bash
+mkdir -p ~/.xonotic/data/records/{working,videos}
+mkdir ~/.xonotic/data/records/working/{sliced,archived}
+mkdir ~/.xonotic/data/video
 ```
 
-#### Uploads
+#### YouTube Uploads
 
 Create a Python 2 venv and install the dependencies:
 
@@ -48,6 +48,8 @@ pip install -r requirements.txt
 Create OAuth2 credentials for type 'other' at https://console.developers.google.com/apis/credentials.
 
 Download the json for this OAuth2 client ID and save it as `client_secrets.json` in this project's root dir.
+
+The first time you run this, you will be asked to allow the app to use a youtube account in the web browser.
 
 ## Configuration
 
