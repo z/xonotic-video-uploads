@@ -11,8 +11,8 @@ inotifywait -m $WORKING_DIR -e close_write -e moved_to |
         echo "-> $file"
 
         # Process all records
-        echo ./demotc-ctf-record-extractor.sh "${path}${file}" new
-        ./demotc-ctf-record-extractor.sh "${path}${file}" new
+        echo ./bin/demotc-ctf-record-extractor.sh "${path}${file}" new
+        ./bin/demotc-ctf-record-extractor.sh "${path}${file}" new
 
         for demo in $(find "${WORKING_DIR}sliced/" -name "capture-*.dem"); do
 
@@ -22,7 +22,7 @@ inotifywait -m $WORKING_DIR -e close_write -e moved_to |
             echo "Processing demo: $demo"
 
             # Record the demo (the bottleneck)
-            ./xonotic-headless.sh -w "$demo"
+            ./bin/xonotic-headless.sh -w "$demo"
 
             mv $demo_with_path ${WORKING_DIR}archived/
 
