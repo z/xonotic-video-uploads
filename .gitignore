@@ -8,5 +8,5 @@ playback-*.dem
 *.dem
 *.ogv
 config/config.conf
-client_secrets.json*
-*upload.py-oauth2.json*
+*client_secrets.json*
+*upload-youtube.py-oauth2.json*

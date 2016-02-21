@@ -16,7 +16,7 @@ d=$1
 echo "processing $d"
 name=$(basename "$d" .dem)
 i=0
-./demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do
+./bin/demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do
 	timecode=${timecode%:}
     echo "---> $result"
 	result=${result#\"}
@@ -35,7 +35,7 @@ i=0
 	timecode_end=`echo "$timecode + 2" | bc -l`
 	i=$(($i + 1))
     	#./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
-	./demotc.pl cut "$d" "capture-$name-$i.dem" "$timecode_start" "$timecode_end" --capture
+	./bin/demotc.pl cut "$d" "capture-$name-$i.dem" "$timecode_start" "$timecode_end" --capture
 done
 
 find -name "capture-*.dem" -exec mv {} $WORKING_DIR/sliced \; 
