@@ -8,7 +8,8 @@ inotifywait -m $DEMO_DIR -e close_write -e moved_to |
 
         echo "-> $file"
 
-#	scp "${path}${file}" encoding-server:~/watched_dir
+        # Set $ENCODING_SERVER in config.conf (should match entry in ~/.ssh/config
+        # scp "${path}${file}" ${ENCODING_SERVER}:${WORKING_DIR}
         mv "${path}${file}" "$WORKING_DIR"
 
     done
