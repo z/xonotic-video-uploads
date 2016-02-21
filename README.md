@@ -70,6 +70,8 @@ You can start it all on a single server with the following command (though you s
 
 `tmuxp load config/tmux.default.yaml`
 
+![default tmux layout](docs/images/tmux.default.png)
+
 To test it, put a demo file that has flag capture records in the `$DEMO_DIR` folder. That is, the folder that the `watcher-demos.sh` script is watching.
 
 This watcher script kicks off a chain reaction that the other watchers will pick up on. If the files match the criteria, they advance to the next watcher.
