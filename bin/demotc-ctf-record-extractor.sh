@@ -13,12 +13,14 @@ case "$2" in
 esac
 
 d=$1
-echo "processing $d"
+
 name=$(basename "$d" .dem)
+
+echo "Looking for records in: $name"
+
 i=0
 ./bin/demotc.pl grep "$d" "$PATTERN" | while IFS=" " read -r timecode result; do
 	timecode=${timecode%:}
-    echo "---> $result"
 	result=${result#\"}
 	result=${result%\"}
 	result=${result%% *}
@@ -28,14 +30,15 @@ i=0
 	minutes=${result%%:*}
 	result=${result#*:}
 	seconds=${result%%.*}
-	result=${result#*.}
-	tenths=$result
+	tenths=${result#*.}
 
 	timecode_start=`echo "$timecode - $minutes*60 - $seconds - $tenths*0.1 - 2" | bc -l`
 	timecode_end=`echo "$timecode + 2" | bc -l`
 	i=$(($i + 1))
-    	#./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
-	./bin/demotc.pl cut "$d" "capture-$name-$i.dem" "$timecode_start" "$timecode_end" --capture
+   	#./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
+	./bin/demotc.pl cut "$d" "capture-${seconds}.${tenths}_-_$name-$i.dem" "$timecode_start" "$timecode_end" --capture
 done
+
+echo "Done."
 
 find -name "capture-*.dem" -exec mv {} $WORKING_DIR/sliced \; 

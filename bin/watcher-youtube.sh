@@ -8,16 +8,21 @@ inotifywait -m $VIDEO_DIR -e close_write -e moved_to |
 
         echo "-> $file"
 
-    	name=$(echo $file | sed 's/capture-//g;s/_/ - /g;
-                            s/- [0-9]\{1,3\}-[0-9]\{1,3\}-[0-9]\{1,3\}-\{1,3\}[0-9]\{1,3\}-[0-9]\{4,7\}-[0-9]\{1,3\}.ogv//g;
-                            s/- \([0-9]\{1,3\}\)-\([0-9]\{1,3\}\) -/\1:\2 -/')
+        # You had a problem, so you used a regex...
+    	name=$(echo $file | sed 's/capture-//;
+                                s/[0-9-]*-\([0-9]*\)\.ogv/ - cap \1/;
+                                s/_\([0-9]*\)_\( - cap\)/ - player \1\2/;
+                                s/_/ /g;
+                                s/ \([0-9]\{2\}\)-\([0-9]\{2\}\)/ \1:\2 -/;')
+
+        echo $name
 
         # upload to youtube
         ./bin/upload-youtube.py --file="${path}${file}" \
                        --title="$name" \
-                       --description="This file was automatically uploaded when a flag capture was discovered by the server" \
-                       --keywords="xonotic" \
-                       --category="22" \
-                       --privacyStatus="private"
+                       --description="$YT_DESCRIPTION" \
+                       --keywords="$YT_KEYWORDS" \
+                       --category="$YT_CAT_ID" \
+                       --privacyStatus="$YT_PRIVACY"
         
     done
