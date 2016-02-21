@@ -1,12 +1,10 @@
-session_name: xonotic-video-uploads
+session_name: xonotic-encoder
 windows:
 - window_name: watchers
-  layout: tiled
+  layout: even-vertical
   panes:
     - shell_command:
-        - ./watcher-demos.sh
-    - shell_command:
-        - ./watcher-records.sh
+        - ./bin/watcher-records.sh
     - shell_command:
         - source activate
-        - ./watcher-youtube.sh
+        - ./bin/watcher-youtube.sh

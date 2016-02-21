@@ -9,4 +9,4 @@ playback-*.dem
 *.ogv
 config/config.conf
 client_secrets.json*
-upload.py-oauth2.json*
+*upload.py-oauth2.json*

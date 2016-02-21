@@ -34,7 +34,7 @@ i=0
 	timecode_start=`echo "$timecode - $minutes*60 - $seconds - $tenths*0.1 - 2" | bc -l`
 	timecode_end=`echo "$timecode + 2" | bc -l`
 	i=$(($i + 1))
-    #./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
+    	#./demotc.pl cut "$d" "playback-$i.dem" "$timecode_start" "$timecode_end"
 	./demotc.pl cut "$d" "capture-$name-$i.dem" "$timecode_start" "$timecode_end" --capture
 done
 

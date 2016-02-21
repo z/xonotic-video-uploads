@@ -40,12 +40,12 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 watcher-youtube.sh
-badd +0 watcher-records.sh
-badd +0 xonotic-headless.sh
-badd +0 watcher-demos.sh
-args watcher-youtube.sh
-edit watcher-demos.sh
+badd +0 bin/watcher-youtube.sh
+badd +0 bin/watcher-records.sh
+badd +0 bin/xonotic-headless.sh
+badd +0 bin/watcher-demos.sh
+args bin/watcher-youtube.sh
+edit bin/watcher-demos.sh
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -178,7 +178,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-edit xonotic-headless.sh
+edit bin/xonotic-headless.sh
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -288,7 +288,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-edit watcher-records.sh
+edit bin/watcher-records.sh
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -398,7 +398,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-edit watcher-youtube.sh
+edit bin/watcher-youtube.sh
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
