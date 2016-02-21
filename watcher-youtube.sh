@@ -4,7 +4,7 @@
 # TODO find config
 source config/config.conf
 
-inotifywait -m $VIDEO_DIR -e create -e moved_to |
+inotifywait -m $VIDEO_DIR -e close_write -e moved_to |
     while read path action file; do
 
         echo "-> $file"

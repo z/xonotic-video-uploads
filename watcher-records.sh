@@ -3,8 +3,7 @@
 
 source config/config.conf
 
-#inotifywait -m $WORKING_DIR -e create -e moved_to |
-inotifywait -m $WORKING_DIR -e create -e moved_to |
+inotifywait -m $WORKING_DIR -e close_write -e moved_to |
     while read path action file; do
 
         # TODO: check if file has .dem extension
