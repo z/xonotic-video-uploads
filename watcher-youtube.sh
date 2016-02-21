@@ -14,7 +14,7 @@ inotifywait -m $VIDEO_DIR -e close_write -e moved_to |
                             s/- \([0-9]\{1,3\}\)-\([0-9]\{1,3\}\) -/\1:\2 -/')
 
         # upload to youtube
-        ./upload.py --file="${path}${file}" \
+        ./upload-youtube.py --file="${path}${file}" \
                        --title="$name" \
                        --description="This file was automatically uploaded when a flag capture was discovered by the server" \
                        --keywords="xonotic" \

@@ -1,0 +1,17 @@
+session_name: xonotic-video-uploads
+windows:
+- window_name: watchers
+  layout: tiled
+  panes:
+    - shell_command:
+        - ./watcher-demos.sh
+    - shell_command:
+        - ./watcher-records.sh
+    - shell_command:
+        - source activate
+        - ./watcher-youtube.sh
+- window_name: develop
+  layout: tiled
+  panes:
+    - shell_command:
+        - vim -S ./config/develop.vim

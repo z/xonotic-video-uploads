@@ -20,6 +20,8 @@ sudo apt-get install inotify-tools
 
 #### Headless Encoding
 
+Xonotic. You need Xonotic. You should know how to get Xonotic. Get Xonotic.
+
 Install Xvfb and libvorbis:
 
 ```bash
@@ -64,9 +66,9 @@ Check out `config/example.autoexec.cfg` for an example config you can use on you
 
 ## Usage
 
-You can start it all with the following command (though you should read up on tmux a bit first):
+You can start it all on a single server with the following command (though you should read up on tmux a bit first):
 
-`tmuxp load config/tmux.config.yaml`
+`tmuxp load config/tmux.default.yaml`
 
 To test it, put a demo file that has flag capture records in the `$DEMO_DIR` folder. That is, the folder that the `watcher-demos.sh` script is watching.
 
@@ -133,9 +135,8 @@ Kill Xvfb (shouldn't need this when I figure out remain-on-exit in tmuxp):
 kill -9 $(pgrep Xvfb)
 ```
 
-
 ### Development
 
 If you're a vim and tmux user, you might like this config I use for local development:
 
-`tmuxp load config/develop.config.yaml`
+`tmuxp load config/tmux.default.dev`

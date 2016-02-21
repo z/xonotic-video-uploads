@@ -1,0 +1,15 @@
+session_name: xonotic-video-uploads
+windows:
+- window_name: watchers
+  layout: tiled
+  panes:
+    - shell_command:
+        - ./watcher-demos.sh
+    - shell_command:
+        - ./watcher-records.sh
+    - shell_command:
+        - source activate
+        - ./watcher-youtube.sh
+    - shell_command:
+        - cd ~/0.8.1/Xonotic
+        - ./xonotic-linux-dedicated.sh +serverconfig ctf.cfg
