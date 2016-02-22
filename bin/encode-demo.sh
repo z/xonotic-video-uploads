@@ -10,7 +10,7 @@ output=$2
 echo "Processing demo: $demo"
 
 # Record the demo (the bottleneck)
-./bin/xonotic-headless.sh -w "$demo" $screen &>/dev/null
+./bin/xonotic-headless.sh -w "$demo" $output &>/dev/null
 
 mv $demo_with_path ${WORKING_DIR}archived/
 
