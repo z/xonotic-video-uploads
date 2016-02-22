@@ -22,10 +22,10 @@ sudo apt-get install inotify-tools
 
 Xonotic. You need Xonotic. You should know how to get Xonotic. Get Xonotic.
 
-Install Xvfb and libvorbis:
+Install Xvfb, xnit, libvorbis and parallel:
 
 ```bash
-sudo apt-get install xvfb xinit libvorbisenc2 libvorbis-dev libogg-dev libsdl1.2debian libtheora0
+sudo apt-get install xvfb xinit libvorbisenc2 libvorbis-dev libogg-dev libsdl1.2debian libtheora0 parallel
 ```
 
 Create needed directories in your `$USER_DIR`:

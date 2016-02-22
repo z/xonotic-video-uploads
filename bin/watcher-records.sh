@@ -13,28 +13,11 @@ inotifywait -m $WORKING_DIR -e close_write -e moved_to |
         # Process all records
         ./bin/demotc-ctf-record-extractor.sh "${path}${file}" new
 
-        for demo in $(find "${WORKING_DIR}sliced/" -name "capture-*.dem"); do
+        echo "Processing sliced demos..."
 
-            demo_with_path=$demo
-            demo=$(basename $demo)
+        find "${WORKING_DIR}sliced/" -name "capture-*.dem" | parallel --eta ./bin/encode-demo.sh {} '$'PARALLEL_SEQ
 
-            echo "Processing demo: $demo"
-
-            # Record the demo (the bottleneck)
-            ./bin/xonotic-headless.sh -w "$demo" &>/dev/null
-
-            mv $demo_with_path ${WORKING_DIR}archived/
-
-            # Move capture-*.ogv to VIDEO_DIR -- TODO improve this
-
-            LAST_FILE=$(ls -Art "$RAW_VIDEO_DIR" | tail -n 1)
-            echo "Moving Last Video File: $LAST_FILE"
-
-#            echo mv "${RAW_VIDEO_DIR}${LAST_FILE}" "${VIDEO_DIR}${demo%.*}.ogv"
-            mv "${RAW_VIDEO_DIR}${LAST_FILE}" "${VIDEO_DIR}${demo%.*}.ogv"
-
-            echo "Done."
-
-        done
+        echo "Done. Processing sliced demos."
 
     done
+
