@@ -10,9 +10,9 @@ output=$2
 echo "Processing demo: $demo"
 
 # Record the demo (the bottleneck)
-./bin/xonotic-headless.sh -w "$demo" $output &>/dev/null
+./bin/xonotic-headless.sh -w "$demo" $output
 
-mv $demo_with_path ${WORKING_DIR}archived/
+rm $demo_with_path
 
 # Move capture-*.ogv to VIDEO_DIR -- TODO improve this
 

@@ -39,6 +39,7 @@ i=0
 	./bin/demotc.pl cut "$d" "capture-${seconds}.${tenths}_-_$name-$i.dem" "$timecode_start" "$timecode_end" --capture
 done
 
-echo "Done."
+mv "$d" ${WORKING_DIR}archived/
+find -name "capture-*.dem" -exec mv {} ${WORKING_DIR}sliced \; 
 
-find -name "capture-*.dem" -exec mv {} $WORKING_DIR/sliced \; 
+echo "Done."

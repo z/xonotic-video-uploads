@@ -6,5 +6,7 @@ windows:
     - shell_command:
         - ./bin/watcher-records.sh
     - shell_command:
+        - ./bin/watcher-sliced.sh
+    - shell_command:
         - source activate
         - ./bin/watcher-youtube.sh
