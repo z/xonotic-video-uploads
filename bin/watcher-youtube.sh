@@ -3,7 +3,7 @@
 
 source config/config.conf
 
-inotifywait -m $VIDEO_DIR -e close_write -e moved_to |
+inotifywait -m -e close_write -e moved_to ${VIDEO_DIR} |
     while read path action file; do
 
         echo "-> $file"
@@ -15,7 +15,7 @@ inotifywait -m $VIDEO_DIR -e close_write -e moved_to |
                                 s/_/ /g;
                                 s/ \([0-9]\{2\}\)-\([0-9]\{2\}\)/ \1:\2 -/;')
 
-        echo $name
+        echo "Uploading as: $name"
 
         # upload to youtube
         ./bin/upload-youtube.py --file="${path}${file}" \
