@@ -3,6 +3,6 @@
 
 source config/config.conf
 
-inotifywait -m -e close_write -e moved_to --format '%w%f' ${WORKING_DIR} | \
+inotifywait -m -e close_write -e moved_to -e create --format '%w%f' ${WORKING_DIR} | \
         parallel -u ./bin/demotc-ctf-record-extractor.sh {} new
 

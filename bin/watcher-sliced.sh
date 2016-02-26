@@ -3,5 +3,7 @@
 
 source config/config.conf
 
-inotifywait -m -e close_write -e moved_to --format '%w%f' ${WORKING_DIR}${MARKED_DIR} | \
+echo ${WORKING_DIR}${MARKED_DIR}
+
+inotifywait -m -e close_write -e moved_to -e create --format '%w%f' ${WORKING_DIR}${MARKED_DIR} | \
     parallel -u ./bin/encode-demo.sh {} '$'PARALLEL_SEQ

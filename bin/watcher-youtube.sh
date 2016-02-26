@@ -3,7 +3,7 @@
 
 source config/config.conf
 
-inotifywait -m -e close_write -e moved_to ${VIDEO_DIR} |
+inotifywait -m -e close_write -e moved_to -e create ${VIDEO_DIR} |
     while read path action file; do
 
         echo "-> $file"

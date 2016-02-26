@@ -39,6 +39,6 @@ i=0
 done
 
 mv "$demo" ${WORKING_DIR}${ARCHIVED_DIR}
-find -name "capture-*.dem" -exec mv {} ${WORKING_DIR}${MARKED_DIR} \; 
+find -name "capture-*${name}*.dem" -exec mv {} ${WORKING_DIR}${MARKED_DIR} \; 
 
 echo "Done."
